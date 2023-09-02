@@ -1,11 +1,8 @@
 import argparse
 import bs4
-import csv
 import lxml
 import requests
 import sys
-import urllib.parse
-import validators
 
 from util import Node, StackFrontier, QueueFrontier
 
