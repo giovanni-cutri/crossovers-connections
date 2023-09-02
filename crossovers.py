@@ -132,7 +132,7 @@ def neighbors_for_work(work_url):
     res = requests.get(work_url)
     soup = bs4.BeautifulSoup(res.text, "lxml")
 
-    works_urls = [base_url + work.attrs["href"] for work in soup.select("table a[href^='/wiki/']") if "#" not in str(work) and "?" not in str(work)]
+    works_urls = [base_url + work.attrs["href"] for work in soup.select("table b a[href^='/wiki/']") if "#" not in str(work) and "?" not in str(work)]
     works_titles = [get_title_for_work(work_url) for work_url in works_urls]
 
     neighbors = list(zip(works_urls, works_titles))
