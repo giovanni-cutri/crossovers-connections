@@ -3,6 +3,7 @@ import bs4
 import lxml
 import requests
 import sys
+import urllib.parse
 
 from util import Node, StackFrontier, QueueFrontier
 
@@ -119,10 +120,7 @@ def get_title_for_work(url):
     Returns the title for the work provided as a parameter
     """
 
-    res = requests.get(url)
-    soup = bs4.BeautifulSoup(res.text, "lxml")
-    title = soup.select("title")[0].getText().split(" |")[0]
-    return title
+    return urllib.parse.unquote(url.split("/")[-1]).replace("_", " ")
 
 
 def neighbors_for_work(work_url):
