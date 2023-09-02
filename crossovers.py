@@ -37,7 +37,7 @@ def main():
 
 def shortest_path(source, target):
     """
-    Returns the shortest list of articles
+    Returns the shortest list of works
     that connect the source to the target.
 
     If no possible path, returns None.
@@ -132,7 +132,7 @@ def neighbors_for_work(work_url):
     res = requests.get(work_url)
     soup = bs4.BeautifulSoup(res.text, "lxml")
 
-    works_urls = [base_url + work.attrs["href"] for work in soup.select("table a[href^='/wiki/']") if "#" not in str(work) and "?" not in str(work)]
+    works_urls = [base_url + work.attrs["href"] for work in soup.select("table b a[href^='/wiki/']") if "#" not in str(work) and "?" not in str(work)]
     works_titles = [get_title_for_work(work_url) for work_url in works_urls]
 
     neighbors = list(zip(works_urls, works_titles))
@@ -146,9 +146,9 @@ def print_result(path, source):
     """
 
     if path is None:
-        print("\nArticles are not connected.")
+        print("\nWorks are not connected.")
     elif path == "":
-        print("\nThe two articles coincide.")
+        print("\nThe two works coincide.")
     else:
         degrees = len(path)
         if degrees == 1:
