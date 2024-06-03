@@ -2,6 +2,8 @@
 
  Find the shortest path between two works based on the crossovers they had using breadth-first search.
 
+Inspired by [this](https://cs50.harvard.edu/ai/2020/projects/0/degrees/) CS50 Project.
+
  # Usage
 
 - Clone this repository to your local machine.
