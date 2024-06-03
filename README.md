@@ -4,6 +4,8 @@
 
 Inspired by [this](https://cs50.harvard.edu/ai/2020/projects/0/degrees/) CS50 Project.
 
+Data from the [Crossover Wiki](https://fictionalcrossover.fandom.com/wiki/Crossover_Wiki).
+
  # Usage
 
 - Clone this repository to your local machine.
